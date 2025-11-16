@@ -1,0 +1,7 @@
+[00:00:01.033] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.137] Server  LOG      ✓ Ready in 924ms
+[00:00:21.440] Browser LOG     {"avatar":"https://ac.goit.global/fullstack/react/default-avatar.jpg","email":"kononenko3001@gmail.com","username":"kononenko3001@gmail.com"}
+[00:01:35.217] Server  LOG      ✓ Compiled in 4ms
+[00:01:35.464] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[04:09:05.203] Browser WARN    Image with src "https://ac.goit.global/fullstack/react/default-avatar.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading

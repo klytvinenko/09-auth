@@ -2,6 +2,11 @@ import axios from "axios";
 import type { Note, NewNote } from "../types/note";
 //import { error } from "console";
 
+
+// const nextServer = axios.create({
+//   baseURL: 'http://localhost:3000/api',
+//   withCredentials: true, // дозволяє axios працювати з cookie
+// });
 const myKey = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 export interface NoteListData {
   notes: Note[];

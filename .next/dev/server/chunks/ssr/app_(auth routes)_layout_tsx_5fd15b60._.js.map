@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/mac/Documents/GitHub/09-auth/app/%28auth%20routes%29/layout.tsx"],"sourcesContent":["\nexport default function Layout({ children}: { children: React.ReactNode }) {\n  return (\n  <section>\n      <main >{children}</main>\n    </section>\n  );\n}"],"names":[],"mappings":";;;;;;AACe,SAAS,OAAO,EAAE,QAAQ,EAAgC;IACvE,qBACA,8OAAC;kBACG,cAAA,8OAAC;sBAAO;;;;;;;;;;;AAGd","debugId":null}}]
+}
