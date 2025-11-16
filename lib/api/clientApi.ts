@@ -3,15 +3,6 @@ import { api } from "./api";
 import { User } from "@/types/user";
 import { AxiosError } from "axios";
 
-{
-  /*
-login
-logout
-checkSession
-getMe
-updateMe  
-    */
-}
 const myKey = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 interface NoteListData {
   notes: Note[];
@@ -27,7 +18,9 @@ export type LoginRequest = {
   password: string;
 };
 interface UpdateUserRequest {
-  username: string;
+  username?: string;
+  email?: string;     
+  avatar?: string;    
 }
 const authHeaders = {
   Authorization: `Bearer ${myKey}`,
@@ -139,7 +132,7 @@ export const checkClientSession = async () => {
 export const updateUser = async (data: UpdateUserRequest): Promise<User> => {
   try {
     const response = await api.patch<User>("/auth/me", data, {
-      withCredentials: true,
+      withCredentials: true, // важливо для cookie
     });
     return response.data;
   } catch (error) {

@@ -1,7 +1,819 @@
-[00:00:01.033] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.137] Server  LOG      ✓ Ready in 924ms
-[00:00:21.440] Browser LOG     {"avatar":"https://ac.goit.global/fullstack/react/default-avatar.jpg","email":"kononenko3001@gmail.com","username":"kononenko3001@gmail.com"}
-[00:01:35.217] Server  LOG      ✓ Compiled in 4ms
-[00:01:35.464] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[04:09:05.203] Browser WARN    Image with src "https://ac.goit.global/fullstack/react/default-avatar.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:00:00.876] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.971] Server  LOG      ✓ Ready in 777ms
+[00:00:16.083] Server  ERROR    ⨯ ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./app/(private routes)/notes/filter/[...slug]/page.tsx:7:1
+Module not found: Can't resolve '@/lib/api'
+   5 | } from "@tanstack/react-query";
+   6 | import NotesClient from "./Notes.client";
+>  7 | import { fetchNotes } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Metadata } from "next";
+   9 |
+  10 | interface FilterPageProps {
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:16.215] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:16.215] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/page.tsx:7:1
+Module not found: Can't resolve '@/lib/api'
+   5 | } from "@tanstack/react-query";
+   6 | import NotesClient from "./Notes.client";
+>  7 | import { fetchNotes } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Metadata } from "next";
+   9 |
+  10 | interface FilterPageProps {
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:16.215] Browser ERROR   ./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:16.609] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:16.610] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/page.tsx:7:1
+Module not found: Can't resolve '@/lib/api'
+   5 | } from "@tanstack/react-query";
+   6 | import NotesClient from "./Notes.client";
+>  7 | import { fetchNotes } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Metadata } from "next";
+   9 |
+  10 | interface FilterPageProps {
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:16.610] Browser ERROR   ./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:16.610] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:16.610] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/page.tsx:7:1
+Module not found: Can't resolve '@/lib/api'
+   5 | } from "@tanstack/react-query";
+   6 | import NotesClient from "./Notes.client";
+>  7 | import { fetchNotes } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Metadata } from "next";
+   9 |
+  10 | interface FilterPageProps {
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:16.610] Browser ERROR   ./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:16.671] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:16.672] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/page.tsx:7:1
+Module not found: Can't resolve '@/lib/api'
+   5 | } from "@tanstack/react-query";
+   6 | import NotesClient from "./Notes.client";
+>  7 | import { fetchNotes } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Metadata } from "next";
+   9 |
+  10 | interface FilterPageProps {
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:16.672] Browser ERROR   ./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:16.687] Server  ERROR    ⨯ ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./app/(private routes)/notes/filter/[...slug]/page.tsx:7:1
+Module not found: Can't resolve '@/lib/api'
+   5 | } from "@tanstack/react-query";
+   6 | import NotesClient from "./Notes.client";
+>  7 | import { fetchNotes } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Metadata } from "next";
+   9 |
+  10 | interface FilterPageProps {
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:16.904] Browser ERROR   uncaughtError: Error: ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:17.082] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.082] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/page.tsx:7:1
+Module not found: Can't resolve '@/lib/api'
+   5 | } from "@tanstack/react-query";
+   6 | import NotesClient from "./Notes.client";
+>  7 | import { fetchNotes } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Metadata } from "next";
+   9 |
+  10 | interface FilterPageProps {
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.082] Browser ERROR   ./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.082] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.082] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/page.tsx:7:1
+Module not found: Can't resolve '@/lib/api'
+   5 | } from "@tanstack/react-query";
+   6 | import NotesClient from "./Notes.client";
+>  7 | import { fetchNotes } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Metadata } from "next";
+   9 |
+  10 | interface FilterPageProps {
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:17.082] Browser ERROR   ./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:48.977] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:48.977] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/page.tsx:7:1
+Module not found: Can't resolve '@/lib/api'
+   5 | } from "@tanstack/react-query";
+   6 | import NotesClient from "./Notes.client";
+>  7 | import { fetchNotes } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Metadata } from "next";
+   9 |
+  10 | interface FilterPageProps {
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:48.977] Browser ERROR   ./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:50.977] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:50.978] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/page.tsx:7:1
+Module not found: Can't resolve '@/lib/api'
+   5 | } from "@tanstack/react-query";
+   6 | import NotesClient from "./Notes.client";
+>  7 | import { fetchNotes } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Metadata } from "next";
+   9 |
+  10 | interface FilterPageProps {
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:50.978] Browser ERROR   ./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:02.978] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:02.978] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/page.tsx:7:1
+Module not found: Can't resolve '@/lib/api'
+   5 | } from "@tanstack/react-query";
+   6 | import NotesClient from "./Notes.client";
+>  7 | import { fetchNotes } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Metadata } from "next";
+   9 |
+  10 | interface FilterPageProps {
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:02.978] Browser ERROR   ./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:22.977] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx:8:1
+Module not found: Can't resolve '@/lib/api'
+   6 | import NoteList from "@/components/NoteList/NoteList";
+   7 | import SearchBox from "@/components/SearchBox/SearchBox";
+>  8 | import { fetchNotes, NoteListData } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 | import Pagination from "@/components/Pagination/Pagination";
+  10 | import Link from "next/link";
+  11 |
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import trace:
+  Server Component:
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:22.977] Browser ERROR   ./app/(private routes)/notes/filter/[...slug]/page.tsx:7:1
+Module not found: Can't resolve '@/lib/api'
+   5 | } from "@tanstack/react-query";
+   6 | import NotesClient from "./Notes.client";
+>  7 | import { fetchNotes } from "@/lib/api";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Metadata } from "next";
+   9 |
+  10 | interface FilterPageProps {
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:22.977] Browser ERROR   ./components/NoteList/NoteList.tsx:2:1
+Module not found: Can't resolve '@/lib/api'
+  1 | 'use client'
+> 2 | import { deleteNote } from "@/lib/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  3 | import type { Note} from "../../types/note";
+  4 | import css from "./NoteList.module.css";
+  5 | import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+Import map: aliased to relative './lib/api' inside of [project]/
+
+Import traces:
+  Client Component Browser:
+    ./components/NoteList/NoteList.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component Browser]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/NoteList/NoteList.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Client Component SSR]
+    ./app/(private routes)/notes/filter/[...slug]/Notes.client.tsx [Server Component]
+    ./app/(private routes)/notes/filter/[...slug]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found

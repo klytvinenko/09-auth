@@ -421,7 +421,9 @@ __turbopack_context__.s([
     "login",
     ()=>login,
     "register",
-    ()=>register
+    ()=>register,
+    "updateUser",
+    ()=>updateUser
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/api/api.ts [app-ssr] (ecmascript)");
 ;
@@ -526,6 +528,18 @@ const checkClientSession = async ()=>{
         withCredentials: true
     });
     return res.data;
+};
+const updateUser = async (data)=>{
+    try {
+        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].patch("/auth/me", data, {
+            withCredentials: true
+        });
+        return response.data;
+    } catch (error) {
+        const err = error;
+        console.error(err);
+        throw new Error(err.response?.data?.error || "Failed to update user");
+    }
 };
 }),
 "[project]/components/AuthProvider/AuthProvider.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
