@@ -1,8 +1,4 @@
-[00:00:01.078] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.180] Server  LOG      ✓ Ready in 965ms
-[00:00:11.431] Server  LOG     > Error Response Data:
-[00:00:11.432] Server  DIR     {} {}
-[00:00:11.670] Server  LOG     > Error Response Data:
-[00:00:11.672] Server  DIR     {} {}
-[00:00:13.325] Server  LOG     > Error Response Data:
-[00:00:13.326] Server  DIR     {} {}
+[00:00:00.937] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.031] Server  LOG      ✓ Ready in 817ms
+[00:02:16.585] Server  LOG      ✓ Compiled in 22ms
+[00:02:46.273] Server  LOG      ✓ Compiled in 17ms

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createNote } from "@/lib/api";
+import { createNote } from "@/lib/api/clientApi";
 import { useRouter } from "next/navigation";
 import css from "./NoteForm.module.css";
 import useNoteDraftStore from "@/lib/store/noteStore";
@@ -19,7 +19,7 @@ export default function NoteForm() {
       clearDraft();
       router.back();
       queryClient.invalidateQueries({ queryKey: ["notes"] });
-      //має бути інвалідація
+  
     },
   });
 

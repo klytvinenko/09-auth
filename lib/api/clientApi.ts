@@ -3,8 +3,6 @@ import { api } from "./api";
 import { User } from "@/types/user";
 import { AxiosError } from "axios";
 
-const myKey = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
-
 interface NoteListData {
   notes: Note[];
   totalPages: number;
@@ -28,10 +26,6 @@ interface UpdateUserRequest {
 }
 
 
-const authHeaders = {
-  Authorization: `Bearer ${myKey}`,
-};
-
 export const fetchNotes = async (
   search: string,
   page: number,
@@ -39,26 +33,25 @@ export const fetchNotes = async (
 ): Promise<NoteListData> => {
   const res = await api.get<NoteListData>("/notes", {
     params: { search, page, perPage: 12, sortBy: "created", tag },
-    headers: authHeaders,
+    withCredentials: true,
   });
   return res.data;
 };
 
 export const fetchNoteById = async (id: string): Promise<Note> => {
-  const res = await api.get<Note>(`/notes/${id}`, { headers: authHeaders });
+  const res = await api.get<Note>(`/notes/${id}`, { withCredentials: true });
   return res.data;
 };
 
 export const createNote = async (values: NewNote): Promise<Note> => {
-  const res = await api.post<Note>("/notes", values, { headers: authHeaders });
+  const res = await api.post<Note>("/notes", values, { withCredentials: true });
   return res.data;
 };
 
 export const deleteNote = async (noteId: string): Promise<Note> => {
-  const res = await api.delete<Note>(`/notes/${noteId}`, { headers: authHeaders });
+  const res = await api.delete<Note>(`/notes/${noteId}`, { withCredentials: true });
   return res.data;
 };
-
 
 export const register = async (data: RegisterRequest): Promise<User> => {
   try {
@@ -79,7 +72,6 @@ export const login = async (data: LoginRequest): Promise<User> => {
     throw new Error(err.response?.data?.error || "Login failed");
   }
 };
-
 
 export const checkClientSession = async (): Promise<boolean> => {
   try {
