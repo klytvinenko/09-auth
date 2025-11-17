@@ -5,13 +5,19 @@ import { useQuery } from "@tanstack/react-query";
 import { useDebounce } from "use-debounce";
 import NoteList from "@/components/NoteList/NoteList";
 import SearchBox from "@/components/SearchBox/SearchBox";
-import { fetchNotes, NoteListData } from "@/lib/api";
 import Pagination from "@/components/Pagination/Pagination";
 import Link from "next/link";
+import { fetchNotes } from "@/lib/api/clientApi";
+import { Note } from "@/types/note";
 
 interface NotesClientProps {
   tag?: string;
 }
+export interface NoteListData {
+  notes: Note[];
+  totalPages: number;
+}
+
 
 const NotesClient = ({ tag }: NotesClientProps) => {
   const [search, setSearch] = useState("");

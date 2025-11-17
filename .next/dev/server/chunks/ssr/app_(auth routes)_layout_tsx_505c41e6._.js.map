@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/mac/Documents/GitHub/09-auth/app/%28auth%20routes%29/layout.tsx"],"sourcesContent":["\"use client\";\n\nimport { useRouter } from \"next/navigation\";\nimport { useEffect } from \"react\";\n\nexport default function Layout({ children }: { children: React.ReactNode }) {\n  const router = useRouter();\n\n  useEffect(() => {\n    router.refresh();\n  }, [router]);\n  return (\n    <section>\n      <main>{children}</main>\n    </section>\n  );\n}\n"],"names":[],"mappings":";;;;;AAEA;AACA;AAHA;;;;AAKe,SAAS,OAAO,EAAE,QAAQ,EAAiC;IACxE,MAAM,SAAS,IAAA,+IAAS;IAExB,IAAA,kNAAS,EAAC;QACR,OAAO,OAAO;IAChB,GAAG;QAAC;KAAO;IACX,qBACE,8OAAC;kBACC,cAAA,8OAAC;sBAAM;;;;;;;;;;;AAGb","debugId":null}}]
+}

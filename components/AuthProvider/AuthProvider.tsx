@@ -1,5 +1,5 @@
 "use client"
-import { checkClientSession } from "@/lib/api/clientApi";
+import { checkClientSession, getUser } from "@/lib/api/clientApi";
 import { useAuthStore } from "@/lib/store/authStore";
 import { usePathname, useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
@@ -13,26 +13,28 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const setUser = useAuthStore((s) => s.setUser);
   const clearIsAuthenticated = useAuthStore((s) => s.clearIsAuthenticated);
-  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const verify = async () => {
       const isPrivate = PRIVATE_ROUTES.some((r) => pathname.startsWith(r));
 
       if (!isPrivate) {
-        setLoading(false);
         return;
       }
 
       try {
-        const user = await checkClientSession();
-        setUser(user); 
+        const sessionValid = await checkClientSession();
+       if(!sessionValid) {
+        throw new Error("Invalid session");
+       }
+       const user = await getUser();
+        setUser(user);
+
       } catch (e) {
         clearIsAuthenticated();
         router.push("/sign-in");
-      } finally {
-        setLoading(false);
-      }
+      } 
     };
 
     verify();

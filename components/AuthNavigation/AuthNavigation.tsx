@@ -1,25 +1,27 @@
-"use client"
+"use client";
 import Link from "next/link";
 import css from "./AuthNavigation.module.css";
 import { useAuthStore } from "@/lib/store/authStore";
 import { useRouter } from "next/navigation";
-
+import { logout } from "@/lib/api/clientApi";
 
 export const AuthNavigation = () => {
   const router = useRouter();
-  //   const { isAuthenticated, user, clearIsAuthenticated } = useAuthStore((state) => ({
-  //   isAuthenticated: state.isAuthenticated,
-  //   user: state.user,
-  //   clearIsAuthenticated: state.clearIsAuthenticated,
-  // }));
-  const isAuthenticated = useAuthStore(state => state.isAuthenticated);
-  const user = useAuthStore(state => state.user);
-  const clearIsAuthenticated = useAuthStore(state => state.clearIsAuthenticated);
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const user = useAuthStore((state) => state.user);
+  const clearIsAuthenticated = useAuthStore(
+    (state) => state.clearIsAuthenticated
+  );
 
-  const handleLogout = () => {
-    clearIsAuthenticated();
-    router.push("/sign-in");  
-  }
+  const handleLogout = async () => {
+    try {
+      await logout();
+      clearIsAuthenticated();
+      router.push("/sign-in");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
   return (
     <>
       {isAuthenticated ? (
@@ -36,7 +38,9 @@ export const AuthNavigation = () => {
 
           <li className={css.navigationItem}>
             <p className={css.userEmail}>{user?.email}</p>
-            <button className={css.logoutButton} onClick={handleLogout}>Logout</button>
+            <button className={css.logoutButton} onClick={handleLogout}>
+              Logout
+            </button>
           </li>
         </>
       ) : (

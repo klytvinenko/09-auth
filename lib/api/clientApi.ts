@@ -131,13 +131,39 @@ export const checkClientSession = async () => {
 
 export const updateUser = async (data: UpdateUserRequest): Promise<User> => {
   try {
-    const response = await api.patch<User>("/auth/me", data, {
-      withCredentials: true, // важливо для cookie
+    const response = await api.patch<User>("/users/me", data, {
+      withCredentials: true,
     });
     return response.data;
   } catch (error) {
     const err = error as AxiosError<{ error: string }>;
     console.error(err);
     throw new Error(err.response?.data?.error || "Failed to update user");
+  }
+};
+
+export const logout = async (): Promise<void> => {
+  try {
+    await api.post(
+      "/auth/logout", 
+      {}, 
+      { withCredentials: true } 
+    );
+  } catch (error) {
+    console.error("Logout error:", error);
+    throw error; 
+  }
+};
+
+export const getUser = async (): Promise<User> => {
+  try {
+    const response = await api.get<User>("/users/me", {
+      withCredentials: true, 
+    });
+
+    return response.data as User;
+  } catch (error) {
+    console.error("Failed to fetch user:", error);
+    throw error;
   }
 };

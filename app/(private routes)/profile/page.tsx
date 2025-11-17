@@ -1,8 +1,35 @@
+"use client"
 import Link from "next/link";
 import css from "./ProfilePage.module.css";
 import Image from "next/image";
+//import { Metadata } from "next";
+import { useAuthStore } from "@/lib/store/authStore";
+
+
+// export const metadata: Metadata = {
+// title: "User Profile | NoteHub",
+//   description: "View and manage your personal profile information in NoteHub.",
+//   openGraph: {
+//     title: "User Profile | NoteHub",
+//     description: "Manage your profile information, avatar, and account settings on NoteHub.",
+//     url: "https://notehub.com/profile",
+//     images: [
+//       {
+//         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+//         width: 1200,
+//         height: 630,
+//         alt: "NoteHub Profile",
+//       },
+//     ],
+//   },
+// };
 
 const Profile = () => {
+  const user = useAuthStore((s) => s.user);
+  const avatar =
+    user?.avatar ||
+    "https://ac.goit.global/fullstack/react/default-avatar.jpg";
+
   return (
     <div>
       <main className={css.mainContent}>
@@ -15,7 +42,7 @@ const Profile = () => {
           </div>
           <div className={css.avatarWrapper}>
             <Image
-              src="https://ac.goit.global/fullstack/react/default-avatar.jpg"
+              src={avatar}
               alt="User Avatar"
               width={120}
               height={120}
@@ -23,8 +50,8 @@ const Profile = () => {
             />
           </div>
           <div className={css.profileInfo}>
-            <p>Username: your_username</p>
-            <p>Email: your_email@example.com</p>
+            <p>Username: {user?.username}</p>
+            <p>Email: {user?.email}</p>
           </div>
         </div>
       </main>
