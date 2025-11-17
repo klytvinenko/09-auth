@@ -28,11 +28,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/compiler-runtime.js [app-client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module '@/lib/api'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/api/clientApi.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$NoteList$2f$NoteList$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__ = __turbopack_context__.i("[project]/components/NoteList/NoteList.module.css [app-client] (css module)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useMutation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@tanstack/react-query/build/modern/useMutation.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$QueryClientProvider$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js [app-client] (ecmascript)");
@@ -48,11 +44,11 @@ var _s = __turbopack_context__.k.signature();
 const NoteList = (t0)=>{
     _s();
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(12);
-    if ($[0] !== "9bdf188b1613cb99fe98113b81a9f54cfe6783eda6ef8b6b8dc88d8ebf97a7b5") {
+    if ($[0] !== "ff4689f088e175bc7505648db259b2dac1c06e275c3c2fb51e33deb29b91aa81") {
         for(let $i = 0; $i < 12; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "9bdf188b1613cb99fe98113b81a9f54cfe6783eda6ef8b6b8dc88d8ebf97a7b5";
+        $[0] = "ff4689f088e175bc7505648db259b2dac1c06e275c3c2fb51e33deb29b91aa81";
     }
     const { notes } = t0;
     const queryClient = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$QueryClientProvider$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQueryClient"])();
@@ -186,7 +182,7 @@ _s(NoteList, "O0w+IUaOxZmmrU0TMxRKQFx3FaE=", false, function() {
 _c = NoteList;
 const __TURBOPACK__default__export__ = NoteList;
 function _temp(noteId) {
-    return deleteNote(noteId);
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["deleteNote"])(noteId);
 }
 var _c;
 __turbopack_context__.k.register(_c, "NoteList");
@@ -346,13 +342,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$use$2d$debounce$2f$dist$2f$index$2e$module$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/use-debounce/dist/index.module.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$NoteList$2f$NoteList$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/NoteList/NoteList.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$SearchBox$2f$SearchBox$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/SearchBox/SearchBox.tsx [app-client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module '@/lib/api'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Pagination$2f$Pagination$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/Pagination/Pagination.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/api/clientApi.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
@@ -369,11 +361,11 @@ var _s = __turbopack_context__.k.signature();
 const NotesClient = (t0)=>{
     _s();
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(27);
-    if ($[0] !== "aa950495cf1aa90e16017878568d47de1e19d45ce429d9348617a343b598bb4a") {
+    if ($[0] !== "154d5ff6c7be5d12ad1206a15f5788431562dad42cd4ef9ef64ec6d5399c9fd3") {
         for(let $i = 0; $i < 27; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "aa950495cf1aa90e16017878568d47de1e19d45ce429d9348617a343b598bb4a";
+        $[0] = "154d5ff6c7be5d12ad1206a15f5788431562dad42cd4ef9ef64ec6d5399c9fd3";
     }
     const { tag } = t0;
     const [search, setSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
@@ -388,7 +380,7 @@ const NotesClient = (t0)=>{
                 page,
                 tag
             ],
-            queryFn: ()=>fetchNotes(debouncedSearch, page, tag === "all" ? undefined : tag)
+            queryFn: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["fetchNotes"])(debouncedSearch, page, tag === "all" ? undefined : tag)
         };
         $[1] = debouncedSearch;
         $[2] = page;
@@ -425,7 +417,7 @@ const NotesClient = (t0)=>{
             onSearch: onSearch
         }, void 0, false, {
             fileName: "[project]/app/(private routes)/notes/filter/[...slug]/Notes.client.tsx",
-            lineNumber: 70,
+            lineNumber: 75,
             columnNumber: 10
         }, ("TURBOPACK compile-time value", void 0));
         $[8] = t4;
@@ -440,7 +432,7 @@ const NotesClient = (t0)=>{
             setPage: setPage
         }, void 0, false, {
             fileName: "[project]/app/(private routes)/notes/filter/[...slug]/Notes.client.tsx",
-            lineNumber: 77,
+            lineNumber: 82,
             columnNumber: 29
         }, ("TURBOPACK compile-time value", void 0));
         $[9] = page;
@@ -457,7 +449,7 @@ const NotesClient = (t0)=>{
             children: "Create note +"
         }, void 0, false, {
             fileName: "[project]/app/(private routes)/notes/filter/[...slug]/Notes.client.tsx",
-            lineNumber: 86,
+            lineNumber: 91,
             columnNumber: 10
         }, ("TURBOPACK compile-time value", void 0));
         $[12] = t6;
@@ -475,7 +467,7 @@ const NotesClient = (t0)=>{
             ]
         }, void 0, true, {
             fileName: "[project]/app/(private routes)/notes/filter/[...slug]/Notes.client.tsx",
-            lineNumber: 93,
+            lineNumber: 98,
             columnNumber: 10
         }, ("TURBOPACK compile-time value", void 0));
         $[13] = t5;
@@ -489,7 +481,7 @@ const NotesClient = (t0)=>{
             children: "Loading..."
         }, void 0, false, {
             fileName: "[project]/app/(private routes)/notes/filter/[...slug]/Notes.client.tsx",
-            lineNumber: 101,
+            lineNumber: 106,
             columnNumber: 23
         }, ("TURBOPACK compile-time value", void 0));
         $[15] = isLoading;
@@ -503,7 +495,7 @@ const NotesClient = (t0)=>{
             notes: notes || []
         }, void 0, false, {
             fileName: "[project]/app/(private routes)/notes/filter/[...slug]/Notes.client.tsx",
-            lineNumber: 109,
+            lineNumber: 114,
             columnNumber: 30
         }, ("TURBOPACK compile-time value", void 0));
         $[17] = notes;
@@ -517,7 +509,7 @@ const NotesClient = (t0)=>{
             children: "No notes found"
         }, void 0, false, {
             fileName: "[project]/app/(private routes)/notes/filter/[...slug]/Notes.client.tsx",
-            lineNumber: 117,
+            lineNumber: 122,
             columnNumber: 47
         }, ("TURBOPACK compile-time value", void 0));
         $[19] = isLoading;
@@ -538,7 +530,7 @@ const NotesClient = (t0)=>{
             ]
         }, void 0, true, {
             fileName: "[project]/app/(private routes)/notes/filter/[...slug]/Notes.client.tsx",
-            lineNumber: 126,
+            lineNumber: 131,
             columnNumber: 11
         }, ("TURBOPACK compile-time value", void 0));
         $[22] = t10;

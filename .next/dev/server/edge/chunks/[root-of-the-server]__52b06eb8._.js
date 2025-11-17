@@ -165,7 +165,7 @@ async function middleware(req) {
 }
 const config = {
     matcher: [
-        "/profile",
+        "/profile/:path*",
         "/notes/:path*",
         "/sign-in",
         "/sign-up"

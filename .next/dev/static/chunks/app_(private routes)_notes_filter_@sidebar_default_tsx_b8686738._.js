@@ -1,8 +1,7 @@
 (globalThis.TURBOPACK_CHUNK_LISTS || (globalThis.TURBOPACK_CHUNK_LISTS = [])).push({
     script: typeof document === "object" ? document.currentScript : undefined,
     chunks: [
-  "static/chunks/app_(private routes)_profile_ProfilePage_module_0d0038d7.css",
-  "static/chunks/node_modules_next_dist_60d9f176._.js"
+  "static/chunks/components_SidebarNotes_SidebarNotes_module_3f333e6a.css"
 ],
     source: "dynamic"
 });

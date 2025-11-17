@@ -160,128 +160,84 @@ const authHeaders = {
     Authorization: `Bearer ${myKey}`
 };
 const fetchNotes = async (search, page, tag)=>{
-    try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/notes", {
-            params: {
-                search,
-                page,
-                perPage: 12,
-                sortBy: "created",
-                tag
-            },
-            headers: authHeaders
-        });
-        const result = res.data;
-        console.log(result);
-        return result;
-    } catch (error) {
-        console.log(error);
-        return {
-            notes: [],
-            totalPages: 0
-        };
-    }
+    const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/notes", {
+        params: {
+            search,
+            page,
+            perPage: 12,
+            sortBy: "created",
+            tag
+        },
+        headers: authHeaders
+    });
+    return res.data;
 };
 const fetchNoteById = async (id)=>{
-    try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get(`/notes/${id}`, {
-            headers: authHeaders
-        });
-        return res.data;
-    } catch (error) {
-        console.log(error);
-        return null;
-    }
+    const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get(`/notes/${id}`, {
+        headers: authHeaders
+    });
+    return res.data;
 };
 const createNote = async (values)=>{
-    try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].post(`/notes`, values, {
-            headers: authHeaders
-        });
-        console.log(res.data);
-        return res.data;
-    } catch (error) {
-        console.log(error);
-        return null;
-    }
+    const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].post("/notes", values, {
+        headers: authHeaders
+    });
+    return res.data;
 };
 const deleteNote = async (noteId)=>{
-    try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].delete(`/notes/${noteId}`, {
-            headers: authHeaders
-        });
-        return res.data;
-    } catch (error) {
-        console.log(error);
-        return null;
-    }
+    const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].delete(`/notes/${noteId}`, {
+        headers: authHeaders
+    });
+    return res.data;
 };
 const register = async (data)=>{
     try {
         const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].post("/auth/register", data, {
-            headers: authHeaders,
             withCredentials: true
         });
-        console.log(res.data);
         return res.data;
     } catch (error) {
         const err = error;
-        console.error(err);
         throw new Error(err.response?.data?.error || "Registration failed");
     }
 };
 const login = async (data)=>{
     try {
         const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].post("/auth/login", data, {
-            headers: authHeaders,
             withCredentials: true
         });
-        console.log(res.data);
         return res.data;
     } catch (error) {
         const err = error;
-        console.error(err);
-        throw new Error(err.response?.data?.error || "Registration failed");
+        throw new Error(err.response?.data?.error || "Login failed");
     }
 };
 const checkClientSession = async ()=>{
-    const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/auth/session", {
+    try {
+        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/auth/session", {
+            withCredentials: true
+        });
+        return res.data.valid;
+    } catch  {
+        return false;
+    }
+};
+const updateUser = async (data)=>{
+    const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch("/users/me", data, {
         withCredentials: true
     });
     return res.data;
 };
-const updateUser = async (data)=>{
-    try {
-        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch("/users/me", data, {
-            withCredentials: true
-        });
-        return response.data;
-    } catch (error) {
-        const err = error;
-        console.error(err);
-        throw new Error(err.response?.data?.error || "Failed to update user");
-    }
-};
 const logout = async ()=>{
-    try {
-        await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].post("/auth/logout", {}, {
-            withCredentials: true
-        });
-    } catch (error) {
-        console.error("Logout error:", error);
-        throw error;
-    }
+    await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].post("/auth/logout", {}, {
+        withCredentials: true
+    });
 };
 const getUser = async ()=>{
-    try {
-        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/users/me", {
-            withCredentials: true
-        });
-        return response.data;
-    } catch (error) {
-        console.error("Failed to fetch user:", error);
-        throw error;
-    }
+    const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/users/me", {
+        withCredentials: true
+    });
+    return res.data;
 };
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
@@ -587,6 +543,7 @@ __turbopack_context__.s([
     "default",
     ()=>__TURBOPACK__default__export__
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/compiler-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/api/clientApi.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$authStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/authStore.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
@@ -597,47 +554,67 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 const PRIVATE_ROUTES = [
     "/profile"
 ];
-const AuthProvider = ({ children })=>{
+const AuthProvider = (t0)=>{
     _s();
+    const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(7);
+    if ($[0] !== "8219de9e470909fd72176594135a4af9da9f640c04d550e16b96799804e37f7f") {
+        for(let $i = 0; $i < 7; $i += 1){
+            $[$i] = Symbol.for("react.memo_cache_sentinel");
+        }
+        $[0] = "8219de9e470909fd72176594135a4af9da9f640c04d550e16b96799804e37f7f";
+    }
+    const { children } = t0;
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
-    const setUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$authStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuthStore"])({
-        "AuthProvider.useAuthStore[setUser]": (s)=>s.setUser
-    }["AuthProvider.useAuthStore[setUser]"]);
-    const clearIsAuthenticated = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$authStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuthStore"])({
-        "AuthProvider.useAuthStore[clearIsAuthenticated]": (s_0)=>s_0.clearIsAuthenticated
-    }["AuthProvider.useAuthStore[clearIsAuthenticated]"]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "AuthProvider.useEffect": ()=>{
-            const verify = {
-                "AuthProvider.useEffect.verify": async ()=>{
-                    const isPrivate = PRIVATE_ROUTES.some({
-                        "AuthProvider.useEffect.verify.isPrivate": (r)=>pathname.startsWith(r)
-                    }["AuthProvider.useEffect.verify.isPrivate"]);
-                    if (!isPrivate) {
-                        return;
-                    }
-                    try {
-                        const sessionValid = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["checkClientSession"])();
-                        if (!sessionValid) {
-                            throw new Error("Invalid session");
-                        }
+    const setUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$authStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuthStore"])(_temp);
+    const clearIsAuthenticated = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$authStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuthStore"])(_temp2);
+    let t1;
+    let t2;
+    if ($[1] !== clearIsAuthenticated || $[2] !== pathname || $[3] !== router || $[4] !== setUser) {
+        t1 = ()=>{
+            const verifyAuth = async ()=>{
+                ;
+                try {
+                    const sessionValid = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["checkClientSession"])();
+                    if (sessionValid) {
                         const user = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getUser"])();
                         setUser(user);
-                    } catch (e) {
+                    } else {
                         clearIsAuthenticated();
+                        if (PRIVATE_ROUTES.some((r_0)=>pathname.startsWith(r_0))) {
+                            router.push("/sign-in");
+                        }
+                    }
+                } catch (t3) {
+                    clearIsAuthenticated();
+                    if (PRIVATE_ROUTES.some((r)=>pathname.startsWith(r))) {
                         router.push("/sign-in");
                     }
                 }
-            }["AuthProvider.useEffect.verify"];
-            verify();
-        }
-    }["AuthProvider.useEffect"], [
-        pathname
-    ]);
+            };
+            verifyAuth();
+        };
+        t2 = [
+            pathname,
+            router,
+            setUser,
+            clearIsAuthenticated
+        ];
+        $[1] = clearIsAuthenticated;
+        $[2] = pathname;
+        $[3] = router;
+        $[4] = setUser;
+        $[5] = t1;
+        $[6] = t2;
+    } else {
+        t1 = $[5];
+        t2 = $[6];
+    }
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])(t1, t2);
     return children;
 };
 _s(AuthProvider, "uHS40+LxrFxRXK0eSs6IYjeYt3A=", false, function() {
@@ -650,6 +627,12 @@ _s(AuthProvider, "uHS40+LxrFxRXK0eSs6IYjeYt3A=", false, function() {
 });
 _c = AuthProvider;
 const __TURBOPACK__default__export__ = AuthProvider;
+function _temp(s) {
+    return s.setUser;
+}
+function _temp2(s_0) {
+    return s_0.clearIsAuthenticated;
+}
 var _c;
 __turbopack_context__.k.register(_c, "AuthProvider");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
