@@ -1,16 +1,20 @@
-[00:00:01.006] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.131] Server  LOG      ✓ Ready in 923ms
-[00:00:05.772] Browser LOG     pathname: /
-[00:00:05.772] Browser LOG     sessionValid: {"success":true}
-[00:00:10.444] Browser LOG     pathname: /sign-in
-[00:00:10.444] Browser LOG     sessionValid: {"success":false}
-[00:00:10.522] Server  LOG     > Error Response Data:
-[00:00:10.522] Server  DIR     {} {}
-[00:00:17.207] Browser LOG     pathname: /sign-up
-[00:00:17.207] Browser LOG     sessionValid: {"success":false}
-[00:00:17.641] Server  LOG     > Error Response Data:
-[00:00:17.641] Server  DIR     {} {}
-[00:00:18.814] Browser LOG     pathname: /sign-in
-[00:00:18.814] Browser LOG     sessionValid: {"success":false}
-[00:00:18.885] Server  LOG     > Error Response Data:
-[00:00:18.886] Server  DIR     {} {}
+[00:00:00.844] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.947] Server  LOG      ✓ Ready in 754ms
+[00:00:05.247] Browser LOG     pathname: /
+[00:00:05.247] Browser LOG     sessionValid: {"success":false}
+[00:00:05.773] Server  LOG     > Error Response Data:
+[00:00:05.774] Server  DIR     {} {}
+[00:00:07.480] Browser LOG     pathname: /sign-in
+[00:00:07.480] Browser LOG     sessionValid: {"success":false}
+[00:00:07.556] Server  LOG     > Error Response Data:
+[00:00:07.557] Server  DIR     {} {}
+[00:00:15.274] Browser LOG     pathname: /profile
+[00:00:15.274] Browser LOG     sessionValid: {"success":true}
+[00:00:28.990] Browser LOG     pathname: /sign-in
+[00:00:28.990] Browser LOG     sessionValid: {"success":false}
+[00:00:29.100] Server  LOG     > Error Response Data:
+[00:00:29.100] Server  DIR     {} {}
+[00:00:35.567] Browser LOG     pathname: /sign-up
+[00:00:35.567] Browser LOG     sessionValid: {"success":false}
+[00:00:36.001] Server  LOG     > Error Response Data:
+[00:00:36.002] Server  DIR     {} {}
