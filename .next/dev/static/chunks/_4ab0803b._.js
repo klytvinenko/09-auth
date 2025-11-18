@@ -208,14 +208,10 @@ const login = async (data)=>{
     }
 };
 const checkClientSession = async ()=>{
-    try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/auth/session", {
-            withCredentials: true
-        });
-        return res.data.valid;
-    } catch  {
-        return false;
-    }
+    const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].get("/auth/session", {
+        withCredentials: true
+    });
+    return res.data;
 };
 const updateUser = async (data)=>{
     const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["api"].patch("/users/me", data, {
@@ -538,7 +534,6 @@ __turbopack_context__.s([
     "default",
     ()=>__TURBOPACK__default__export__
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/compiler-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/api/clientApi.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$authStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/store/authStore.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-client] (ecmascript)");
@@ -549,67 +544,65 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-;
 const PRIVATE_ROUTES = [
     "/profile"
 ];
-const AuthProvider = (t0)=>{
+const PUBLIC_ROUTES = [
+    "/sign-in",
+    "/register"
+];
+const AuthProvider = ({ children })=>{
     _s();
-    const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(7);
-    if ($[0] !== "8219de9e470909fd72176594135a4af9da9f640c04d550e16b96799804e37f7f") {
-        for(let $i = 0; $i < 7; $i += 1){
-            $[$i] = Symbol.for("react.memo_cache_sentinel");
-        }
-        $[0] = "8219de9e470909fd72176594135a4af9da9f640c04d550e16b96799804e37f7f";
-    }
-    const { children } = t0;
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
-    const setUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$authStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuthStore"])(_temp);
-    const clearIsAuthenticated = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$authStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuthStore"])(_temp2);
-    let t1;
-    let t2;
-    if ($[1] !== clearIsAuthenticated || $[2] !== pathname || $[3] !== router || $[4] !== setUser) {
-        t1 = ()=>{
-            const verifyAuth = async ()=>{
-                ;
-                try {
-                    const sessionValid = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["checkClientSession"])();
-                    if (sessionValid) {
-                        const user = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getUser"])();
-                        setUser(user);
-                    } else {
+    const setUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$authStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuthStore"])({
+        "AuthProvider.useAuthStore[setUser]": (s)=>s.setUser
+    }["AuthProvider.useAuthStore[setUser]"]);
+    const clearIsAuthenticated = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$store$2f$authStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuthStore"])({
+        "AuthProvider.useAuthStore[clearIsAuthenticated]": (s_0)=>s_0.clearIsAuthenticated
+    }["AuthProvider.useAuthStore[clearIsAuthenticated]"]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "AuthProvider.useEffect": ()=>{
+            const verifyAuth = {
+                "AuthProvider.useEffect.verifyAuth": async ()=>{
+                    try {
+                        const sessionValid = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["checkClientSession"])();
+                        console.log("pathname:", pathname);
+                        console.log("sessionValid:", sessionValid);
+                        if (sessionValid) {
+                            const user = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getUser"])();
+                            setUser(user);
+                            // Не редіректимо з логіну, якщо вже залогінений
+                            if (PUBLIC_ROUTES.includes(pathname)) {
+                                router.push("/");
+                            }
+                        } else {
+                            clearIsAuthenticated();
+                            // Редірект лише для приватних маршрутів
+                            if (PRIVATE_ROUTES.some({
+                                "AuthProvider.useEffect.verifyAuth": (r_0)=>pathname.startsWith(r_0)
+                            }["AuthProvider.useEffect.verifyAuth"]) && !PUBLIC_ROUTES.includes(pathname)) {
+                                router.push("/sign-in");
+                            }
+                        }
+                    } catch (err) {
                         clearIsAuthenticated();
-                        if (PRIVATE_ROUTES.some((r_0)=>pathname.startsWith(r_0))) {
+                        if (PRIVATE_ROUTES.some({
+                            "AuthProvider.useEffect.verifyAuth": (r)=>pathname.startsWith(r)
+                        }["AuthProvider.useEffect.verifyAuth"]) && !PUBLIC_ROUTES.includes(pathname)) {
                             router.push("/sign-in");
                         }
                     }
-                } catch (t3) {
-                    clearIsAuthenticated();
-                    if (PRIVATE_ROUTES.some((r)=>pathname.startsWith(r))) {
-                        router.push("/sign-in");
-                    }
                 }
-            };
+            }["AuthProvider.useEffect.verifyAuth"];
             verifyAuth();
-        };
-        t2 = [
-            pathname,
-            router,
-            setUser,
-            clearIsAuthenticated
-        ];
-        $[1] = clearIsAuthenticated;
-        $[2] = pathname;
-        $[3] = router;
-        $[4] = setUser;
-        $[5] = t1;
-        $[6] = t2;
-    } else {
-        t1 = $[5];
-        t2 = $[6];
-    }
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])(t1, t2);
+        }
+    }["AuthProvider.useEffect"], [
+        pathname,
+        router,
+        setUser,
+        clearIsAuthenticated
+    ]);
     return children;
 };
 _s(AuthProvider, "uHS40+LxrFxRXK0eSs6IYjeYt3A=", false, function() {
@@ -622,12 +615,6 @@ _s(AuthProvider, "uHS40+LxrFxRXK0eSs6IYjeYt3A=", false, function() {
 });
 _c = AuthProvider;
 const __TURBOPACK__default__export__ = AuthProvider;
-function _temp(s) {
-    return s.setUser;
-}
-function _temp2(s_0) {
-    return s_0.clearIsAuthenticated;
-}
 var _c;
 __turbopack_context__.k.register(_c, "AuthProvider");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {

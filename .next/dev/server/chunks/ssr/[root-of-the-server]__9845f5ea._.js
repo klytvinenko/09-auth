@@ -278,14 +278,10 @@ const login = async (data)=>{
     }
 };
 const checkClientSession = async ()=>{
-    try {
-        const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/auth/session", {
-            withCredentials: true
-        });
-        return res.data.valid;
-    } catch  {
-        return false;
-    }
+    const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].get("/auth/session", {
+        withCredentials: true
+    });
+    return res.data;
 };
 const updateUser = async (data)=>{
     const res = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$api$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["api"].patch("/users/me", data, {
@@ -533,6 +529,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 const PRIVATE_ROUTES = [
     "/profile"
 ];
+const PUBLIC_ROUTES = [
+    "/sign-in",
+    "/register"
+];
 const AuthProvider = ({ children })=>{
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["usePathname"])();
@@ -542,19 +542,25 @@ const AuthProvider = ({ children })=>{
         const verifyAuth = async ()=>{
             try {
                 const sessionValid = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["checkClientSession"])();
+                console.log("pathname:", pathname);
+                console.log("sessionValid:", sessionValid);
                 if (sessionValid) {
                     const user = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2f$clientApi$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getUser"])();
                     setUser(user);
+                    // Не редіректимо з логіну, якщо вже залогінений
+                    if (PUBLIC_ROUTES.includes(pathname)) {
+                        router.push("/");
+                    }
                 } else {
                     clearIsAuthenticated();
-                    // Редирект лише для приватних маршрутів
-                    if (PRIVATE_ROUTES.some((r)=>pathname.startsWith(r))) {
+                    // Редірект лише для приватних маршрутів
+                    if (PRIVATE_ROUTES.some((r)=>pathname.startsWith(r)) && !PUBLIC_ROUTES.includes(pathname)) {
                         router.push("/sign-in");
                     }
                 }
             } catch (err) {
                 clearIsAuthenticated();
-                if (PRIVATE_ROUTES.some((r)=>pathname.startsWith(r))) {
+                if (PRIVATE_ROUTES.some((r)=>pathname.startsWith(r)) && !PUBLIC_ROUTES.includes(pathname)) {
                     router.push("/sign-in");
                 }
             }

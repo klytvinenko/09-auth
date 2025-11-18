@@ -9,6 +9,7 @@ interface AuthProviderProps {
 }
 
 const PRIVATE_ROUTES = ["/profile"];
+const PUBLIC_ROUTES = ["/sign-in", "/register"];
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
   const router = useRouter();
@@ -21,20 +22,33 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     const verifyAuth = async () => {
       try {
         const sessionValid = await checkClientSession();
+        console.log("pathname:", pathname);
+        console.log("sessionValid:", sessionValid);
 
         if (sessionValid) {
           const user = await getUser();
           setUser(user);
+
+          // Не редіректимо з логіну, якщо вже залогінений
+          if (PUBLIC_ROUTES.includes(pathname)) {
+            router.push("/");
+          }
         } else {
           clearIsAuthenticated();
-          // Редирект лише для приватних маршрутів
-          if (PRIVATE_ROUTES.some((r) => pathname.startsWith(r))) {
+          // Редірект лише для приватних маршрутів
+          if (
+            PRIVATE_ROUTES.some((r) => pathname.startsWith(r)) &&
+            !PUBLIC_ROUTES.includes(pathname)
+          ) {
             router.push("/sign-in");
           }
         }
       } catch (err) {
         clearIsAuthenticated();
-        if (PRIVATE_ROUTES.some((r) => pathname.startsWith(r))) {
+        if (
+          PRIVATE_ROUTES.some((r) => pathname.startsWith(r)) &&
+          !PUBLIC_ROUTES.includes(pathname)
+        ) {
           router.push("/sign-in");
         }
       }

@@ -73,14 +73,20 @@ export const login = async (data: LoginRequest): Promise<User> => {
   }
 };
 
-export const checkClientSession = async (): Promise<boolean> => {
-  try {
-    const res = await api.get<{ valid: boolean }>("/auth/session", { withCredentials: true });
-    return res.data.valid;
-  } catch {
-    return false;
-  }
+// export const checkClientSession = async (): Promise<boolean> => {
+//   try {
+//     const res = await api.get<{ valid: boolean }>("/auth/session", { withCredentials: true });
+//     return res.data.valid;
+//   } catch {
+//     return false;
+//   }
+// };
+
+export const checkClientSession = async () => {
+  const res = await api.get("/auth/session", { withCredentials: true });
+  return res.data; 
 };
+
 
 export const updateUser = async (data: UpdateUserRequest): Promise<User> => {
   const res = await api.patch<User>("/users/me", data, { withCredentials: true });
